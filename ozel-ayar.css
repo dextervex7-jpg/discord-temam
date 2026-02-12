@@ -1,66 +1,84 @@
-/* DEXTER ÖZEL PANEL VE LOGO DÜZELTMESİ */
+/* DEXTER ÖZEL AYARLAR VE FİXLER
+   Chillax ile çakışmayan, senin istediğin paneli ve diğer detayları içerir.
+*/
 
-/* 1. SOL ÜST LOGO -> DEXTER */
+/* --- 1. SOL ÜST LOGO DÜZENLEMESİ --- */
+/* Discord logosunu DEXTER ile değiştirir */
 [class^="wordmark_"] svg { display: none !important; }
 [class^="wordmark_"]::after {
-    content: "DEXTER";
-    font-family: var(--font-name);
+    content: "DEXTER"; /* BURADAKİ YAZIYI DEĞİŞTİREBİLİRSİN */
     font-weight: 800;
     font-size: 16px;
-    letter-spacing: 2px;
     color: #fff;
-    position: absolute;
-    top: 7px;
-    left: 10px;
+    margin-left: 10px;
+    letter-spacing: 1px;
 }
 
-/* 2. SOL ALT PANEL (YAN YANA VE ŞEFFAF DÜZEN) */
+/* --- 2. SOL ALT PANEL DÜZENLEMESİ (YAN YANA VE ŞEFFAF) --- */
+/* Chillax'ın paneldeki tüm bozucu stilini sıfırlar ve yan yana, şeffaf yapar */
 [class^="panels_"] [class^="container_"] {
-    background: rgba(0, 0, 0, 0.55) !important; /* İstediğin hafif şeffaf siyah ton */
-    backdrop-filter: blur(4px);
+    all: unset !important; /* Chillax'ın tüm stilini tamamen iptal eder */
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
     justify-content: space-between !important;
-    height: 52px !important;
-    padding: 0 8px !important;
-    position: static !important;
-    transform: none !important;
-    border-radius: 8px !important;
-    margin: 4px !important;
-    width: auto !important;
+    background: rgba(0, 0, 0, 0.65) !important; /* Yarı şeffaf siyah arka plan */
+    backdrop-filter: blur(10px) !important; /* Hafif bulanıklık efekti */
+    height: 54px !important; /* Panel yüksekliği */
+    width: 235px !important; /* Panel genişliği */
+    padding: 0 10px !important;
+    margin: 8px !important;
+    border-radius: 12px !important; /* Köşeleri yuvarlar */
+    box-sizing: border-box !important;
+    position: static !important; /* Paneli yerine sabitler, kaydırmaz */
+    transform: none !important; /* Chillax'ın animasyonlarını iptal eder */
+    transition: none !important; /* Geçiş efektlerini kapatır */
 }
 
-/* Profil Bilgileri ve Yazılar */
-[class^="panels_"] [class^="avatarWrapper_"],
-[class^="panels_"] [class^="nameTag_"] {
-    position: static !important;
-    transform: none !important;
-    opacity: 1 !important;
+/* Profil fotoğrafı, isim ve durum yazısı alanı */
+[class^="panels_"] [class^="avatarWrapper_"] {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
     background: transparent !important;
-    margin-right: 4px !important;
+    flex: 1 !important; /* Alanı esnek yapar */
+    min-width: 0 !important;
 }
 
-/* Mikrofon, Kulaklık ve Ayar Butonları */
+/* Mikrofon, Kulaklık, Ayarlar butonları alanı */
 [class^="panels_"] [class^="buttons_"] {
     display: flex !important;
     flex-direction: row !important;
-    position: static !important;
+    gap: 0px !important; /* Butonlar arası boşluk */
     background: transparent !important;
-    gap: 2px !important;
 }
 
-/* 3. KLASÖR SİMGESİ DÜZELTME */
+/* Chillax'ın gizleme ve kaydırma efektlerini tamamen ortadan kaldırır */
+[class^="panels_"] [class^="container_"] > * {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    position: static !important;
+    transition: none !important;
+}
+
+/* --- 3. PROFİL FOTOĞRAFI ÇEMBERLERİNİ KALDIRMA --- */
+/* Online, DND, Idle durumlarındaki çemberleri tamamen kaldırır */
+[class^="avatarWrapper_"] {
+    border-color: transparent !important;
+    box-shadow: none !important;
+}
+.mask_cb1157[style*="border-color"] { /* Radial Status'un çemberlerini de engeller */
+    border-color: transparent !important;
+    box-shadow: none !important;
+}
+
+/* --- 4. KLASÖR SİMGESİ DÜZENLEMESİ (CHILLAX ÇAKIŞMASI) --- */
+/* Chillax'ın klasör önizleme ve simge kaydırmalarını düzeltir */
 .folderPreview__48112 { display: none !important; }
 .expandedFolderIconWrapper_bc7085 { transform: none !important; }
-.folderPreviewWrapper__48112:not([style=""]):before {
-    position: absolute; content: ""; width: 22px; height: 22px; inset: 0; margin: auto;
-    background-color: inherit;
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M20 7H12L10.553 5.106C10.214 4.428 9.521 4 8.764 4H3C2.447 4 2 4.447 2 5V19C2 20.104 2.895 21 4 21H20C21.104 21 22 20.104 22 19V9C22 7.896 21.104 7 20 7Z'/%3E%3C/svg%3E");
-    -webkit-mask-repeat: no-repeat;
-}
 
-/* 4. RENKLİ LİNKLER */
-[href*="youtu.be"], [href*="youtube.com"] { color: #c4302b !important; }
-[href*="twitch.tv"] { color: #b700ff !important; }
-[href*="github.com"] { color: #00f0a8 !important; }
+/* --- 5. RENKLİ LİNK AYARLARI --- */
+[href*="youtu.be"], [href*="youtube.com"] { color: #ff0000 !important; } /* Kırmızı */
+[href*="twitch.tv"] { color: #9146ff !important; } /* Mor */
+[href*="github.com"] { color: #00ffcc !important; } /* Turkuaz */
