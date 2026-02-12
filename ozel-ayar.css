@@ -1,8 +1,6 @@
-/* DEXTER - OZEL AYAR DOSYASI 
-    Bu dosya ana temadaki hataları düzeltir ve paneli yan yana dizer.
-*/
+/* DEXTER ÖZEL PANEL VE LOGO DÜZELTMESİ */
 
-/* 1. SOL UST LOGO - DEXTER */
+/* 1. SOL ÜST LOGO -> DEXTER */
 [class^="wordmark_"] svg { display: none !important; }
 [class^="wordmark_"]::after {
     content: "DEXTER";
@@ -16,40 +14,43 @@
     left: 10px;
 }
 
-/* 2. SOL ALT PANEL DÜZENLEME (YAN YANA VE ŞEFFAF) */
-/* Paneli Discord'un orijinal yerine (statik) çeker ve arka plan verir */
+/* 2. SOL ALT PANEL (YAN YANA VE ŞEFFAF DÜZEN) */
 [class^="panels_"] [class^="container_"] {
-    background: rgba(0, 0, 0, 0.55) !important; /* İstediğin hafif şeffaf siyah */
-    backdrop-filter: blur(4px);               /* Hafif cam efekti */
-    display: flex !important;                 /* Yan yana dizilimi sağlar */
+    background: rgba(0, 0, 0, 0.55) !important; /* İstediğin hafif şeffaf siyah ton */
+    backdrop-filter: blur(4px);
+    display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
     justify-content: space-between !important;
     height: 52px !important;
     padding: 0 8px !important;
-    position: static !important;              /* Kayan yapıyı iptal eder */
-    transform: none !important;               /* Sağa sola kaymayı engeller */
+    position: static !important;
+    transform: none !important;
     border-radius: 8px !important;
     margin: 4px !important;
+    width: auto !important;
 }
 
-/* Profil, İsim ve Butonların üst üste binmesini engeller */
+/* Profil Bilgileri ve Yazılar */
 [class^="panels_"] [class^="avatarWrapper_"],
-[class^="panels_"] [class^="nameTag_"],
-[class^="panels_"] [class^="buttons_"] {
+[class^="panels_"] [class^="nameTag_"] {
     position: static !important;
     transform: none !important;
     opacity: 1 !important;
     background: transparent !important;
+    margin-right: 4px !important;
 }
 
-/* Butonları (Mik, Kulaklık, Ayarlar) kendi içinde yan yana dizer */
+/* Mikrofon, Kulaklık ve Ayar Butonları */
 [class^="panels_"] [class^="buttons_"] {
     display: flex !important;
     flex-direction: row !important;
+    position: static !important;
+    background: transparent !important;
+    gap: 2px !important;
 }
 
-/* 3. KLASÖR SİMGESİ DÜZENLEME */
+/* 3. KLASÖR SİMGESİ DÜZELTME */
 .folderPreview__48112 { display: none !important; }
 .expandedFolderIconWrapper_bc7085 { transform: none !important; }
 .folderPreviewWrapper__48112:not([style=""]):before {
@@ -63,4 +64,3 @@
 [href*="youtu.be"], [href*="youtube.com"] { color: #c4302b !important; }
 [href*="twitch.tv"] { color: #b700ff !important; }
 [href*="github.com"] { color: #00f0a8 !important; }
-[href*="spotify.com"] { color: #13b94a !important; }
