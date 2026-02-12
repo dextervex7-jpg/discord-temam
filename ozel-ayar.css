@@ -1,0 +1,66 @@
+/* DEXTER - OZEL AYAR DOSYASI 
+    Bu dosya ana temadaki hataları düzeltir ve paneli yan yana dizer.
+*/
+
+/* 1. SOL UST LOGO - DEXTER */
+[class^="wordmark_"] svg { display: none !important; }
+[class^="wordmark_"]::after {
+    content: "DEXTER";
+    font-family: var(--font-name);
+    font-weight: 800;
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: #fff;
+    position: absolute;
+    top: 7px;
+    left: 10px;
+}
+
+/* 2. SOL ALT PANEL DÜZENLEME (YAN YANA VE ŞEFFAF) */
+/* Paneli Discord'un orijinal yerine (statik) çeker ve arka plan verir */
+[class^="panels_"] [class^="container_"] {
+    background: rgba(0, 0, 0, 0.55) !important; /* İstediğin hafif şeffaf siyah */
+    backdrop-filter: blur(4px);               /* Hafif cam efekti */
+    display: flex !important;                 /* Yan yana dizilimi sağlar */
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    height: 52px !important;
+    padding: 0 8px !important;
+    position: static !important;              /* Kayan yapıyı iptal eder */
+    transform: none !important;               /* Sağa sola kaymayı engeller */
+    border-radius: 8px !important;
+    margin: 4px !important;
+}
+
+/* Profil, İsim ve Butonların üst üste binmesini engeller */
+[class^="panels_"] [class^="avatarWrapper_"],
+[class^="panels_"] [class^="nameTag_"],
+[class^="panels_"] [class^="buttons_"] {
+    position: static !important;
+    transform: none !important;
+    opacity: 1 !important;
+    background: transparent !important;
+}
+
+/* Butonları (Mik, Kulaklık, Ayarlar) kendi içinde yan yana dizer */
+[class^="panels_"] [class^="buttons_"] {
+    display: flex !important;
+    flex-direction: row !important;
+}
+
+/* 3. KLASÖR SİMGESİ DÜZENLEME */
+.folderPreview__48112 { display: none !important; }
+.expandedFolderIconWrapper_bc7085 { transform: none !important; }
+.folderPreviewWrapper__48112:not([style=""]):before {
+    position: absolute; content: ""; width: 22px; height: 22px; inset: 0; margin: auto;
+    background-color: inherit;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M20 7H12L10.553 5.106C10.214 4.428 9.521 4 8.764 4H3C2.447 4 2 4.447 2 5V19C2 20.104 2.895 21 4 21H20C21.104 21 22 20.104 22 19V9C22 7.896 21.104 7 20 7Z'/%3E%3C/svg%3E");
+    -webkit-mask-repeat: no-repeat;
+}
+
+/* 4. RENKLİ LİNKLER */
+[href*="youtu.be"], [href*="youtube.com"] { color: #c4302b !important; }
+[href*="twitch.tv"] { color: #b700ff !important; }
+[href*="github.com"] { color: #00f0a8 !important; }
+[href*="spotify.com"] { color: #13b94a !important; }
